@@ -33,8 +33,8 @@ for report in list_values:
     total_count += 1
     if any (x < 1 or x > 3 for x in result_list):
         # Try removing one value at a time and repeating checks
-        dampener_result = []
         for i in range(len(report_values)):
+           dampener_result = []
            dampener_list = report_values[:] 
            dampener_list.pop(i)
            if dampener_list[0] < dampener_list[1]:
