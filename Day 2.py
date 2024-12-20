@@ -33,18 +33,19 @@ for report in list_values:
     total_count += 1
     if any (x < 1 or x > 3 for x in result_list):
         # Try removing one value at a time and repeating checks
+        dampener_result = []
         for i in range(len(report_values)):
            dampener_list = report_values[:] 
            dampener_list.pop(i)
            if dampener_list[0] < dampener_list[1]:
                for i in range(len(dampener_list) - 1):
                    diff = dampener_list[i + 1] - dampener_list[i]
-                   result_list.append(diff)
+                   dampener_results.append(diff)
            else:
                for i in range(len(dampener_list) - 1):
                    diff = dampener_list[i] - dampener_list[i + 1]
-                   result_list.append(diff)
-           if any (x < 1 or x > 3 for x in dampener_list):
+                   dampener_results.append(diff)
+           if any (x < 1 or x > 3 for x in dampener_results):
                print("Not Valid")
                status = "Not Safe"
            else:
